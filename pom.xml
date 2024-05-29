@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.w3.org/2001/XMLSchema-instance http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.development.hl7soap</groupId>
+    <artifactId>hl7soap-base</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>SOAP Infrastructure :: Base Project</name>
+    <description>Base project for HL7 SOAP Communication</description>
+    <packaging>pom</packaging>
+    
+    <modules>
+        <module>../mock-soap-server</module>
+        <module>../mock-soap-client</module>
+    </modules>
+    
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <version-org.apache.cxf>3.4.5</version-org.apache.cxf>
+        <version-ca.uhn.hapi>2.3</version-ca.uhn.hapi>
+        <version-org.slf4j>1.7.30</version-org.slf4j>
+        <version-org.apache.cxf>3.5.1</version-org.apache.cxf>
+        <version-org.eclipse.jetty>9.4.43.v20210629</version-org.eclipse.jetty>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- Logging dependencies -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${version-org.slf4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${version-org.slf4j}</version>
+            </dependency>
+            <!-- Apache CXF Core -->
+		    <dependency>
+		        <groupId>org.apache.cxf</groupId>
+		        <artifactId>cxf-core</artifactId>
+		        <version>${version-org.apache.cxf}</version>
+		    </dependency>
+            <!-- Apache CXF dependencies -->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                <version>${version-org.apache.cxf}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-http</artifactId>
+                <version>${version-org.apache.cxf}</version>
+            </dependency>
+            <!-- Embedded server dependecices -->
+            <dependency>
+	            <groupId>org.eclipse.jetty</groupId>
+	            <artifactId>jetty-server</artifactId>
+	            <version>${version-org.eclipse.jetty}</version>
+	        </dependency>
+	        <dependency>
+	            <groupId>org.eclipse.jetty</groupId>
+	            <artifactId>jetty-servlet</artifactId>
+	            <version>${version-org.eclipse.jetty}</version>
+	        </dependency>
+            <!-- HAPI dependencies -->
+            <dependency>
+                <groupId>ca.uhn.hapi</groupId>
+                <artifactId>hapi-base</artifactId>
+                <version>${version-ca.uhn.hapi}</version>
+            </dependency>
+            <dependency>
+                <groupId>ca.uhn.hapi</groupId>
+                <artifactId>hapi-structures-v24</artifactId>
+                <version>${version-ca.uhn.hapi}</version>
+            </dependency>
+            <dependency>
+                <groupId>ca.uhn.hapi</groupId>
+                <artifactId>hapi-hl7overhttp</artifactId>
+                <version>${version-ca.uhn.hapi}</version>
+            </dependency>
+            <!-- Apache Commons Text -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>1.12.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Maven Compiler Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+                <!-- Maven Shade Plugin for creating executable JARs -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.2.4</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
