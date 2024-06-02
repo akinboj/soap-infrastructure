@@ -16,10 +16,13 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <version-org.jgroups>5.1.4.Final</version-org.jgroups>
+        <version-org.jgroups.kubernetes>2.0.1.Final</version-org.jgroups.kubernetes>
         <version-ca.uhn.hapi>2.3</version-ca.uhn.hapi>
         <version-org.slf4j>1.7.30</version-org.slf4j>
         <version-org.glassfish.metro>4.0.3</version-org.glassfish.metro>
         <version-jakarta.platform>9.1.0</version-jakarta.platform>
+        <version-jakarta.xml.soap>3.0.1</version-jakarta.xml.soap>
         <version-jakarta.jws>3.0.0</version-jakarta.jws>
         <version-org.eclipse.jetty>9.4.43.v20210629</version-org.eclipse.jetty>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,6 +30,18 @@
     
     <dependencyManagement>
         <dependencies>
+			<!-- JGroups Reliable Messaging -->
+			<dependency>
+	            <groupId>org.jgroups</groupId>
+	            <artifactId>jgroups</artifactId>
+	            <version>${version-org.jgroups}</version>
+        	</dependency>
+        	<!-- https://mvnrepository.com/artifact/org.jgroups.kubernetes/jgroups-kubernetes -->
+			<dependency>
+			    <groupId>org.jgroups.kubernetes</groupId>
+			    <artifactId>jgroups-kubernetes</artifactId>
+			    <version>${version-org.jgroups.kubernetes}</version>
+			</dependency>
             <!-- Logging dependencies -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -56,6 +71,12 @@
 			    <groupId>jakarta.jws</groupId>
 			    <artifactId>jakarta.jws-api</artifactId>
 			    <version>${version-jakarta.jws}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/jakarta.xml.soap/jakarta.xml.soap-api -->
+			<dependency>
+			    <groupId>jakarta.xml.soap</groupId>
+			    <artifactId>jakarta.xml.soap-api</artifactId>
+			    <version>${version-jakarta.xml.soap}</version>
 			</dependency>
             <!-- Embedded server dependecices -->
             <dependency>
