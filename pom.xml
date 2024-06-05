@@ -16,7 +16,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <version-org.jgroups>5.1.4.Final</version-org.jgroups>
+        <version-org.jgroups>5.3.7.Final</version-org.jgroups>
         <version-org.jgroups.kubernetes>2.0.1.Final</version-org.jgroups.kubernetes>
         <version-ca.uhn.hapi>2.3</version-ca.uhn.hapi>
         <version-org.slf4j>1.7.30</version-org.slf4j>
